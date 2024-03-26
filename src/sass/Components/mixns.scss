@@ -1,0 +1,6 @@
+@mixin layout {
+  display: grid;
+  grid-template-columns: repeat(5, auto 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+}

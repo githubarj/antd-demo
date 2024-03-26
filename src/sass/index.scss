@@ -1,0 +1,9 @@
+@use "./app.scss" as *;
+
+//import
+@import "./Components/trialButton";
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

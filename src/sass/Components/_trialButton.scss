@@ -1,0 +1,5 @@
+@use "./mixns.scss" as *;
+
+.trial-buttons {
+  @include layout
+}
