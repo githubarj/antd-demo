@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./Routes/LandingPage/LandingPage";
 import AppLayout from "./Routes/Layout/AppLayout";
-import Table from "./Routes/Table/Table";
+import MyTable from "./Routes/Table/Table";
+import MyForm from "./Routes/Form/MyForm";
 
 const routes = createBrowserRouter([
   {
@@ -14,8 +15,13 @@ const routes = createBrowserRouter([
       },
       {
         path: "table",
-        element: <Table />,
+        element: <MyTable />,
       },
+      {
+        path: "add-patient",
+        element: <MyForm/>
+
+      }
     ],
   },
 ]);

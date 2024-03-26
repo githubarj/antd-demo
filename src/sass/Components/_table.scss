@@ -1,0 +1,39 @@
+.table-container {
+  background: $accent-color;
+  min-height: 100vh;
+  padding: 20px;
+
+  &__content {
+    background: $main-color;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .navbar {
+    background: $header-color;
+    padding: 10px 20px;
+    h4 {
+      font-weight: 400;
+    }
+  }
+
+  hr {
+    margin: 0;
+  }
+
+  .table-main {
+    background: $main-color;
+    padding: 10px 20px;
+    .action-buttons {
+      padding-bottom: 10px;
+      .action-inputs {
+        display: flex;
+        gap: 10px;
+      }
+    }
+    .actual-table {
+      border: 1px solid $accent-color;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  }
+}

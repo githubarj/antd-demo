@@ -1,5 +1,5 @@
-@use "./mixns.scss" as *;
+@use "./mixins.scss" as *;
 
 .trial-buttons {
-  @include layout
+  @include layout;
 }

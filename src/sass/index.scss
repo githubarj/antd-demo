@@ -1,9 +1,8 @@
 @use "./app.scss" as *;
 
-//import
+//imports
+@import "./Components/mixins";
 @import "./Components/trialButton";
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+@import "./Components/trialTypo";
+@import "./Components/table";
+

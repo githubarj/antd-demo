@@ -1,11 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 function AppLayout() {
-  return (
-    <div className="container-fluid">
-      <Outlet />
-    </div>
-  );
+  return <Outlet />;
 }
 
 export default AppLayout;
