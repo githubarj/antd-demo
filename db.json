@@ -607,6 +607,35 @@
         "ward": "Parklands/Highridge"
       },
       "registrationDate": "2024-03-18"
+    },
+    {
+      "id": "ddc8",
+      "status": "Active",
+      "patientName": "Richard",
+      "aliasName": "Taniua",
+      "gender": "Female",
+      "bloodType": "B+",
+      "maritalStatus": "Married",
+      "identify": "123456",
+      "primaryContact": "0798320724",
+      "religion": "Hinduism",
+      "nationality": "Kenyan",
+      "occupation": "Nurse",
+      "knewUsThrough": "Facebook",
+      "location": {
+        "residence": "Kawangware",
+        "county": "Elgeyo Marakwet",
+        "constituency": "Dagoretti North",
+        "ward": "Karura"
+      },
+      "name": {
+        "prefix": "Mr",
+        "middleName": "Richard",
+        "surname": "kanange"
+      },
+      "age": {
+        "dateOfBirth": "2024-03-06T11:57:14.908Z"
+      }
     }
   ]
 }
