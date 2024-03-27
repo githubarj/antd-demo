@@ -11,6 +11,7 @@ import {
   Menu,
   Dropdown,
   Icon,
+  Skeleton,
 } from "antd";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -147,9 +148,14 @@ function MyTable() {
                 </Col>
               </Row>
             </div>
-            <div className="actual-table">
-              <Table dataSource={tableData} columns={columns} />
-            </div>
+
+            {!tableData ? (
+              <Skeleton active />
+            ) : (
+              <div className="actual-table">
+                <Table dataSource={tableData} columns={columns} />
+              </div>
+            )}
           </Content>
         </Layout>
       </div>
