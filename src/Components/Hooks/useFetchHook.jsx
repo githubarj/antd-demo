@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function useFetchHook({url}) {
+function useFetchHook(endPoint) {
   const [data, setData] = useState();
-  console.log(url);
   useEffect(() => {
     axios
-      .get(url)
+      .get(endPoint)
       .then((response) => setData(response.data))
       .catch((err) => console.error(err));
   }, []);

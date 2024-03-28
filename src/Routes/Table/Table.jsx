@@ -11,21 +11,16 @@ import {
   Menu,
   Dropdown,
   Icon,
-  Skeleton,
 } from "antd";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useFetchHook from "../../Components/Hooks/useFetchHook";
-function MyTable(props) {
-  console.log(props)
+function MyTable() {
   const { Header, Content } = Layout;
   const { Option } = Select;
   const { Search } = Input;
   const { Title } = Typography;
 
-  const tableData = useFetchHook({ url: "http://localhost:3000/patients" });
-  console.log(tableData);
+  const tableData = useFetchHook( "http://localhost:3000/patients" );
 
   const menu = (
     <Menu>
