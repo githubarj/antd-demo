@@ -16,20 +16,16 @@ import {
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-function MyTable() {
+import useFetchHook from "../../Components/Hooks/useFetchHook";
+function MyTable(props) {
+  console.log(props)
   const { Header, Content } = Layout;
   const { Option } = Select;
   const { Search } = Input;
   const { Title } = Typography;
 
-  const [tableData, setTableData] = useState();
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/patients")
-      .then((response) => setTableData(response.data))
-      .catch((err) => console.error(err));
-  }, []);
+  const tableData = useFetchHook({ url: "http://localhost:3000/patients" });
+  console.log(tableData);
 
   const menu = (
     <Menu>
@@ -104,9 +100,9 @@ function MyTable() {
     },
   ];
 
-  const navigate = useNavigate()
-  function changeRoute () {
-    navigate("/add-patient")
+  const navigate = useNavigate();
+  function changeRoute() {
+    navigate("/add-patient");
   }
 
   return (
@@ -149,13 +145,15 @@ function MyTable() {
               </Row>
             </div>
 
-            {!tableData ? (
-              <Skeleton active />
-            ) : (
-              <div className="actual-table">
-                <Table dataSource={tableData} columns={columns} />
-              </div>
-            )}
+            <div className="actual-table">
+              <Table
+                dataSource={tableData ?? []}
+                columns={columns}
+                pagination={{ pageSize: 10 }}
+                scroll={{ y: 350 }}
+                loading={!tableData ? true : false}
+              />
+            </div>
           </Content>
         </Layout>
       </div>

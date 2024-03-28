@@ -42,9 +42,14 @@ function AntDForm(props) {
   );
 
   function disabledDate(current) {
-    // Can not select days before today and today
+    // Can not select days before today
     return current && current >= moment().endOf("day");
   }
+
+
+
+  
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
