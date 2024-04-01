@@ -11,19 +11,60 @@ import {
   Menu,
   Dropdown,
   Icon,
+  message,
+  Modal,
 } from "antd";
 import { useNavigate } from "react-router-dom";
 import useFetchHook from "../../Components/Hooks/useFetchHook";
+import axios from "axios";
 function MyTable() {
   const { Header, Content } = Layout;
   const { Option } = Select;
   const { Search } = Input;
   const { Title } = Typography;
+  const { confirm } = Modal;
+
 
   const tableData = useFetchHook( "http://localhost:3000/patients" );
 
-  const menu = (
-    <Menu>
+
+  const showConfirm = (record) => {
+    confirm({
+      title: 'Do you want to delete these patient?',
+      content: 'This action is final and irreversible',
+      okText: "Delete",
+      okButtonProps: {
+        type: 'danger', // Set the button type to danger
+      },
+      onOk() {
+        axios.delete(`http://localhost:3000/patients/${record.id}`)
+        .then(() => message.info("User deleted successfully"))
+        .catch(err =>{ message.info(err?.message) 
+          console.error(err)})
+      },
+      onCancel() {},
+    });
+  };
+
+  function handleMenuClick(e, record){
+    switch(e.key){
+      case `1`: 
+        message.info("View page not yet created")
+        break;
+      case `2`:
+        message.info("Wait a minute redirecting...")
+        break;
+      case `3`:
+        showConfirm(record)
+        break;
+    }
+
+
+    console.log(e.key)
+  }
+
+  const menu = (record) =>  (
+    <Menu onClick={(e) => handleMenuClick(e, record)}>
       <Menu.Item key="1" style={{ display: "flex", alignItems: "center" }}>
         <Icon type="eye" style={{ color: "green" }} />
         View Patient
@@ -85,8 +126,8 @@ function MyTable() {
     {
       title: "",
       key: "actions",
-      render: () => (
-        <Dropdown overlay={menu}>
+      render: (record) => (
+        <Dropdown overlay={() => menu(record)}>
           <Button>
             Actions <Icon type="down" />
           </Button>
