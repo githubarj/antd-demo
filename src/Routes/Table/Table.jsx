@@ -88,6 +88,15 @@ function MyTable() {
 
   const columns = [
     {
+      title: "",
+      dataIndex: "patientImage",
+      key: "patientImage",
+      render: () => {
+        return <Icon type="user"  />
+      }
+
+    },
+    {
       title: "Patient No",
       dataIndex: "id",
       key: "id",
