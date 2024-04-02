@@ -24,7 +24,21 @@ import {
   westlandsWards,
 } from "../MyData/myData";
 import axios from "axios";
-function AntDForm(props) {
+import useFetchHook from "../Hooks/useFetchHook";
+
+
+const  AntDForm =  (props) =>  {
+
+
+  //check for id param
+ console.log( props.patientID)
+ 
+
+
+  let initialValues =  useFetchHook(`http://localhost:3000/patients${props.PatientID}`)
+  console.log(initialValues)
+
+
   const { Option } = Select;
   const { getFieldDecorator } = props.form;
 

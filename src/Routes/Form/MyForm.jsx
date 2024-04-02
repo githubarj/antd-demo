@@ -1,6 +1,6 @@
 import { Button, Layout, Typography } from "antd";
 import AntDForm from "../../Components/AntDForm/AntDForm";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function MyForm() {
   const { Header, Content } = Layout;
@@ -9,6 +9,10 @@ function MyForm() {
   const navigateBack = () => {
     navigate(-1);
   };
+
+  let {id} = useParams()
+  console.log(id)
+
 
   return (
     <div className=" table-container">
@@ -32,7 +36,7 @@ function MyForm() {
           </Header>
           <hr />
           <Content className="table-main">
-            <AntDForm  />
+            <AntDForm patientID = {id} />
           </Content>
         </Layout>
       </div>

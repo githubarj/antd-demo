@@ -24,6 +24,11 @@ function MyTable() {
   const { Title } = Typography;
   const { confirm } = Modal;
 
+  const navigate = useNavigate();
+  function changeRoute(url) {
+    navigate(url);
+  }
+
 
   const tableData = useFetchHook( "http://localhost:3000/patients" );
 
@@ -52,7 +57,8 @@ function MyTable() {
         message.info("View page not yet created")
         break;
       case `2`:
-        message.info("Wait a minute redirecting...")
+        message.info("Loading...")
+        changeRoute(`/edit-patient/${record.id}`)
         break;
       case `3`:
         showConfirm(record)
@@ -136,10 +142,7 @@ function MyTable() {
     },
   ];
 
-  const navigate = useNavigate();
-  function changeRoute() {
-    navigate("/add-patient");
-  }
+ 
 
   return (
     <div className=" table-container">
@@ -164,14 +167,14 @@ function MyTable() {
                     <Option value="Yiminghe">Pending</Option>
                   </Select>
                   <Select style={{ width: "100%" }}></Select>
-                  <Search placeholder="search patient"></Search>
+                  <Search placeholder="search patient" ></Search>
                 </Col>
                 <Col className="action-inputs">
                   <Button
                     type="primary"
                     icon="user-add"
                     style={{ display: "flex", alignItems: "center" }}
-                    onClick={changeRoute}
+                    onClick={() => changeRoute("/add-patient")}
                   >
                     Add Patient
                   </Button>

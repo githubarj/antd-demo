@@ -21,6 +21,11 @@ const routes = createBrowserRouter([
         path: "add-patient",
         element: <MyForm/>
 
+      },
+      {
+        path: "edit-patient/:id",
+        element: <MyForm/>
+
       }
     ],
   },
